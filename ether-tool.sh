@@ -9,8 +9,6 @@
 # Etherpad settings
 folder_name="etherpad"
 
-# Etherpad settings
-folder_name="etherpad"
 
 echo "Bienvenue dans l'outil de gestion Etherpad >=2.0.0 pour CPanel"
 echo "Installation(i)/Démarrage(d)"
