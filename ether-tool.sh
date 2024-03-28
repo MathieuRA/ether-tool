@@ -56,7 +56,7 @@ install_etherpad() {
     bin/installDeps.sh
 
     echo "Démarrage du logiciel"
-    pnpm run prod "$@"
+    nohup pnpm run prod "$@" > /dev/null 2>&1 &
 }
 
 start_etherpad() {
@@ -69,7 +69,7 @@ start_etherpad() {
     cd "$folder_name"
 
     echo "Démarrage du logiciel"
-    pnpm run prod "$@"
+    nohup pnpm run prod "$@" > /dev/null 2>&1 &
 }
 
 if [ "$method" = "i" ]; then
@@ -78,4 +78,7 @@ elif [ "$method" = "d" ]; then
     ssh "$username@$hostname" "$(typeset -f start_etherpad); start_etherpad \"$folder\" \"$folder_name\""
 else
     echo "Méthode inconnue : $method"
+    exit 1
 fi
+
+exit 0
